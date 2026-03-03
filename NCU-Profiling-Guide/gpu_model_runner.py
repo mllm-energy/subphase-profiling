@@ -3583,9 +3583,16 @@ class GPUModelRunner(
                 scheduler_output, clear_metadata=clear_kv_metadata
             ) as kv_connector_output,
         ):
-            # ADDED LINE BY ME 
-            torch.cuda.nvtx.range_push("vLLM_Inference_Step")
-
+            is_decode = self._is_uniform_decode(
+                max_num_scheduled_tokens=max_num_scheduled_tokens,
+                uniform_decode_query_len=self.uniform_decode_query_len,
+                num_tokens=num_tokens_unpadded,
+                num_reqs=num_reqs,
+            )
+            if is_decode:
+                torch.cuda.nvtx.range_push("InternVL_LLM_Decode/")
+            else:
+                torch.cuda.nvtx.range_push("InternVL_LLM_Prefill/")
             model_output = self._model_forward(
                 input_ids=input_ids,
                 positions=positions,
@@ -3593,8 +3600,6 @@ class GPUModelRunner(
                 inputs_embeds=inputs_embeds,
                 **model_kwargs,
             )
-
-            # ADDED LINE BY ME
             torch.cuda.nvtx.range_pop()
 
         with record_function_or_nullcontext("gpu_model_runner: postprocess"):
