@@ -6,6 +6,7 @@ Guide for profiling vLLM sub-phases with NVIDIA Nsight Compute (NCU) using NVTX 
 
 - NVIDIA GPU with drivers installed
 - NVIDIA Nsight Compute (NCU) installed
+- NVIDIA Nsight Systems (nsys) installed (for timeline profiling)
 - Python 3
 
 ## Setup
@@ -96,3 +97,26 @@ cd NCU-Profiling-Guide && nohup sudo $(which ncu) --target-processes all \
 Replace `InternVL_Vision_Encoder/` with `InternVL_MLP_Connector/`, `InternVL_LLM_Prefill/`, or `InternVL_LLM_Decode/` for the other subphases.
 
 **Note:** `profile_subphases.py` uses `enforce_eager=True` so NVTX markers are visible to NCU (CUDA graph replay hides kernels from NVTX filtering).
+
+### Nsight Systems Timeline Profiling
+
+Nsight Systems (nsys) gives a **timeline** showing how the four subphases execute over time (wall-clock, sequencing, GPU idle gaps). NCU gives per-kernel metrics; nsys shows when each subphase runs.
+
+From `NCU-Profiling-Guide/` with your venv activated:
+
+```bash
+sudo $(which nsys) profile \
+    --trace=cuda,nvtx \
+    --nvtx-capture=range@CLOSED_LOOP_INFERENCE \
+    --output=InternVL_Timeline \
+    ../.venv/bin/python3 profile_subphases.py
+```
+
+Use your venv Python (e.g. `../.venv/bin/python3` when the venv is in the repo root). Add `--force-overwrite true` if `InternVL_Timeline.nsys-rep` already exists.
+
+- `--trace=cuda,nvtx` — capture CUDA API calls, kernel launches, and NVTX ranges
+- `--nvtx-capture=range@CLOSED_LOOP_INFERENCE` — only collect detailed GPU data during the profiling phase (skips warmup, keeps file small)
+
+**Viewing results:** Open `InternVL_Timeline.nsys-rep` in the Nsight Systems GUI (download from NVIDIA). The timeline shows NVTX rows with `CLOSED_LOOP_INFERENCE` as the outer range and `InternVL_Vision_Encoder`, `InternVL_MLP_Connector`, `InternVL_LLM_Prefill`, `InternVL_LLM_Decode` nested inside.
+
+**Connecting nsys + NCU:** Kernel names link the two. In nsys you see which kernels run in which subphase and how long they take; in NCU you see detailed hardware metrics for those same kernels.
