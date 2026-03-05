@@ -16,9 +16,9 @@ Image → [ViT] → [MLP connector] → [LLM] → Text
 
 | Subphase       | File                | NVTX range                 |
 |----------------|---------------------|----------------------------|
-| Vision encoder | `internvl.py`       | `InternVL_Vision_Encoder`   |
-| MLP connector  | `internvl.py`       | `InternVL_MLP_Connector`    |
-| LLM prefill    | `gpu_model_runner.py` | `InternVL_LLM_Prefill`    |
-| LLM decode     | `gpu_model_runner.py` | `InternVL_LLM_Decode`     |
+| Vision encoder | `internvl.py`       | `InternVL_Vision_Encoder/` |
+| MLP connector  | `internvl.py`       | `InternVL_MLP_Connector/`  |
+| LLM prefill    | `gpu_model_runner.py` | `InternVL_LLM_Prefill/`  |
+| LLM decode     | `gpu_model_runner.py` | `InternVL_LLM_Decode/`   |
 
 **Note:** Vision + MLP run during preprocess; LLM prefill/decode split uses `_is_uniform_decode` in the runner.

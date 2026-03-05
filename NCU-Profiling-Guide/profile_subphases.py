@@ -18,6 +18,7 @@ llm = LLM(
     max_model_len=2048,           
     gpu_memory_utilization=0.80,  
     max_num_seqs=1,
+    enforce_eager=True,  # Required for NCU NVTX filtering: CUDA graph replay hides kernels from NVTX
 )
 
 # ==========================================

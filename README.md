@@ -42,16 +42,7 @@ From inside the `vllm` directory with the venv activated, install the specific l
 
 ### 4. Model Code Modifications
 
-To enable precise profiling of sub-phases, we modified the vLLM source code to include NVTX markers.
-This allows the profiler to "see" where the model forward pass begins and ends.
-
-Copy `NCU-Profiling-Guide/gpu_model_runner.py` to your vLLM clone:
-
-```bash
-cp NCU-Profiling-Guide/gpu_model_runner.py vllm/vllm/v1/worker/gpu_model_runner.py
-```
-
-Adds NVTX markers for LLM prefill vs decode: `InternVL_LLM_Prefill/` and `InternVL_LLM_Decode/`.
+Copy `NCU-Profiling-Guide/internvl.py` into your vLLM clone. This repo's vllm already has LLM NVTX markers in `gpu_model_runner.py`; if using an external vLLM clone, copy `vllm/vllm/v1/worker/gpu_model_runner.py` or apply the same NVTX block around `_model_forward`.
 
 ### 5. Profiling Script
 
@@ -83,14 +74,6 @@ Make sure to download the NVIDIA Nsight Compute software so that you can get the
 
 Since our main goal is to find each subphase separately we need to add the NVTX hooks in different spots than I did.
 
-### Subphase model edits (internvl.py)
-
-`NCU-Profiling-Guide/internvl.py` has NVTX markers for vision encoder and MLP connector. Copy it into your vLLM clone when ready:
-
-```bash
-cp NCU-Profiling-Guide/internvl.py vllm/vllm/model_executor/models/internvl.py
-```
-
 | Subphase       | NVTX range                  | Location                    |
 |----------------|-----------------------------|-----------------------------|
 | Vision encoder | `InternVL_Vision_Encoder/`  | internvl.py extract_feature |
@@ -111,3 +94,5 @@ cd NCU-Profiling-Guide && nohup sudo $(which ncu) --target-processes all \
 ```
 
 Replace `InternVL_Vision_Encoder/` with `InternVL_MLP_Connector/`, `InternVL_LLM_Prefill/`, or `InternVL_LLM_Decode/` for the other subphases.
+
+**Note:** `profile_subphases.py` uses `enforce_eager=True` so NVTX markers are visible to NCU (CUDA graph replay hides kernels from NVTX filtering).
