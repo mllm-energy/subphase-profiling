@@ -1,5 +1,6 @@
 import torch
 import time
+from time import perf_counter
 from vllm import LLM, SamplingParams
 from PIL import Image
 
@@ -18,33 +19,29 @@ llm = LLM(
     max_model_len=2048,           
     gpu_memory_utilization=0.80,  
     max_num_seqs=1,
-    enforce_eager=True,  # Required for NCU NVTX filtering: CUDA graph replay hides kernels from NVTX
+    enforce_eager=True,
 )
 
 # ==========================================
 # 2. INPUT SETUP
 # ==========================================
-prompt = "<image>\nPlease describe this image in detail."
-image = Image.new('RGB', (224, 224), color='blue')
-sampling_params = SamplingParams(temperature=0.0, max_tokens=15)
-
+prompt = "<image>\nWhat building is this? Please describe it in detail. It was taken from Austin, Texas."
+image = Image.open("eer.jpg").convert("RGB").resize((448, 448))
 inputs = {
     "prompt": prompt,
     "multi_modal_data": {"image": image}
 }
 
+sampling_params = SamplingParams(temperature=0.0, max_tokens=64)
+
 # ==========================================
 # 3. WARMUP PHASE
 # ==========================================
 print("--- STAGE: WARMUP START ---")
-for i in range(2):
+for i in range(3):
     llm.generate(inputs, sampling_params)
-    print(f"Warmup request {i+1}/2 complete.")
-
-# Force PyTorch to empty the "scratchpad" memory before profiling
-torch.cuda.empty_cache()
-torch.cuda.synchronize()
-time.sleep(2) 
+    torch.cuda.synchronize()
+    print(f"Warmup request {i+1}/3 complete.")
 
 # ==========================================
 # 4. PROFILING PHASE (CLOSED-LOOP)
@@ -54,14 +51,12 @@ print("--- STAGE: PROFILING START ---")
 # Start the NVTX Marker.
 torch.cuda.nvtx.range_push("CLOSED_LOOP_INFERENCE")
 
-for i in range(3):
-    start_time = time.time()
-    
-    llm.generate(inputs, sampling_params)
-    torch.cuda.synchronize() 
-    
-    elapsed = time.time() - start_time
-    print(f"Profiled Request {i+1}/3 finished in {elapsed:.4f} seconds")
+start_time = perf_counter()
+llm.generate(inputs, sampling_params)
+torch.cuda.synchronize() 
+elapsed = perf_counter() - start_time
+
+print(f"Profiled Request finished in {elapsed:.4f} seconds")
 
 # End the NVTX Marker
 torch.cuda.nvtx.range_pop()
