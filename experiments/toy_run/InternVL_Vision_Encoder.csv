@@ -1,0 +1,633 @@
+﻿ID,Estimated Speedup [%],Function Name,Demangled Name,Duration [us],Runtime Improvement [us],# Registers [register/thread],Grid Size,Block Size [block],Result Type
+0,0.00,elementwise_kernel,..direct_copy_kernel_cuda..,77.79,0.00,16,"15288,    1,    1","  128,    1,    1",Kernel: SIMT
+1,0.00,Kernel2,..cutlass_80_tensorop_bf16_s16816gemm_bf16_256x128_64x3_tn_align2..,278.56,0.00,232,"  416,    1,    1","  256,    1,    1",Kernel: SIMT
+2,0.00,CatArrayBatchedCopy,..CatArrayBatchedCopy..,173.41,0.00,30,"  216,    2,    1","  512,    1,    1",Kernel: SIMT
+3,0.00,elementwise_kernel,..gpu_kernel_impl_nocast..,98.02,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+4,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+5,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.07,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+6,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.28,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+7,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.38,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+8,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.91,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+9,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+10,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.20,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+11,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.77,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+12,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.89,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+13,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.46,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+14,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.86,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+15,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.80,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+16,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.14,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+17,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.86,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+18,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.14,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+19,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+20,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.54,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+21,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.62,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+22,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.64,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+23,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.14,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+24,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.80,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+25,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,816.86,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+26,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.55,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+27,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.10,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+28,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+29,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.94,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+30,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.51,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+31,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.42,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+32,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+33,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.83,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+34,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.82,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+35,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.70,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+36,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.53,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+37,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.58,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+38,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.22,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+39,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.04,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+40,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.80,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+41,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.83,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+42,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.82,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+43,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.67,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+44,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,618.94,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+45,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+46,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.22,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+47,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.40,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+48,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+49,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.78,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+50,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.86,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+51,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.95,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+52,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,198.72,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+53,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.67,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+54,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.86,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+55,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.91,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+56,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.70,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+57,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.20,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+58,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.34,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+59,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.31,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+60,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.36,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+61,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.64,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+62,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.85,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+63,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.42,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+64,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.21,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+65,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.49,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+66,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.61,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+67,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.02,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+68,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.40,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+69,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.61,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+70,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,618.82,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+71,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+72,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.70,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+73,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.91,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+74,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.02,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+75,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,60.29,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+76,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.35,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+77,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.11,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+78,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.33,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+79,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.70,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+80,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.90,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+81,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.17,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+82,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,105.31,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+83,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,618.88,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+84,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+85,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.73,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+86,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.98,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+87,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.58,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+88,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.91,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+89,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.42,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+90,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.09,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+91,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.26,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+92,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.06,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+93,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.64,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+94,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.14,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+95,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.64,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+96,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.01,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+97,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+98,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.38,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+99,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,218.59,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+100,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.83,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+101,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.75,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+102,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+103,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.88,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+104,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,198.78,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+105,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.86,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+106,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.86,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+107,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.56,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+108,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+109,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.58,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+110,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+111,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.48,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+112,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.84,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+113,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.54,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+114,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.30,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+115,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.86,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+116,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.66,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+117,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.26,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+118,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.38,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+119,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.96,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+120,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,60.06,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+121,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.26,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+122,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,620.10,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+123,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+124,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.16,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+125,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.65,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+126,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+127,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.98,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+128,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,105.22,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+129,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.66,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+130,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.58,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+131,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.25,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+132,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.06,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+133,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.75,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+134,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.45,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+135,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.42,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+136,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.41,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+137,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.64,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+138,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.94,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+139,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.96,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+140,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.10,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+141,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.58,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+142,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,819.68,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+143,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.33,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+144,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.02,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+145,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.54,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+146,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.53,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+147,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.70,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+148,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.94,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+149,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.41,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+150,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.90,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+151,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.39,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+152,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.64,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+153,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.72,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+154,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.67,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+155,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.57,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+156,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.17,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+157,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.50,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+158,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.83,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+159,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,57.89,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+160,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.42,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+161,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.90,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+162,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.38,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+163,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.34,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+164,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.62,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+165,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.70,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+166,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,60.06,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+167,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+168,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,819.10,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+169,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.14,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+170,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.64,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+171,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.34,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+172,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.85,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+173,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,105.12,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+174,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,620.16,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+175,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+176,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,782.08,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+177,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.26,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+178,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.86,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+179,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.21,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+180,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.38,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+181,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.28,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+182,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.39,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+183,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.41,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+184,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.61,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+185,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.69,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+186,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+187,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.84,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+188,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.31,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+189,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.83,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+190,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,220,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+191,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.70,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+192,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.52,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+193,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.32,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+194,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.91,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+195,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.26,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+196,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.47,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+197,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+198,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.14,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+199,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.58,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+200,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.71,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+201,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.38,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+202,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.86,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+203,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.23,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+204,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.61,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+205,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.88,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+206,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.22,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+207,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.62,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+208,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.30,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+209,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.96,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+210,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.06,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+211,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.05,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+212,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.54,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+213,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.71,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+214,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.22,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+215,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.89,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+216,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.78,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+217,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,97.09,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+218,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.82,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+219,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.38,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+220,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.24,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+221,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.87,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+222,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.15,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+223,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.86,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+224,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.69,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+225,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.45,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+226,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,620.03,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+227,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.41,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+228,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.93,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+229,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.17,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+230,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+231,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.82,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+232,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.45,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+233,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.54,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+234,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.30,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+235,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.02,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+236,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+237,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.30,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+238,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+239,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.81,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+240,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+241,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.61,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+242,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.74,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+243,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.96,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+244,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.23,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+245,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.29,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+246,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.76,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+247,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,198.72,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+248,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,764.96,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+249,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+250,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.49,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+251,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.35,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+252,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.87,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+253,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+254,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.63,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+255,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.65,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+256,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.74,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+257,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.40,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+258,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.86,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+259,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,818.82,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+260,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.17,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+261,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.31,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+262,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+263,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.78,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+264,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.45,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+265,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.84,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+266,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+267,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,782.05,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+268,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,220.03,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+269,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.80,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+270,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.84,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+271,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.58,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+272,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.22,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+273,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.46,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+274,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.06,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+275,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+276,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.07,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+277,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.45,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+278,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.78,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+279,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.22,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+280,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.89,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+281,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.23,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+282,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+283,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,59.33,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+284,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.61,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+285,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,816.80,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+286,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.71,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+287,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.25,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+288,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+289,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.62,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+290,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+291,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.49,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+292,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.25,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+293,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,780.77,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+294,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.87,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+295,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.80,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+296,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.75,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+297,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.64,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+298,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,817.89,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+299,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,199.17,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+300,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.70,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+301,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.54,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+302,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.46,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+303,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.48,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+304,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,619.55,0.00,226,"   24,  105,    1","  128,    1,    1",Kernel: SIMT
+305,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.28,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+306,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,781.15,0.00,255,"    9,   13,   16","  128,    1,    1",Kernel: SIMT
+307,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,219.74,0.00,226,"    8,  105,    1","  128,    1,    1",Kernel: SIMT
+308,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.77,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+309,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.98,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+310,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,104.83,0.00,31,"13325,    1,    1","   32,    4,    1",Kernel: SIMT
+311,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_32x5_tn,819.01,0.00,226,"   32,  105,    1","  128,    1,    1",Kernel: SIMT
+312,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,198.88,0.00,32,"53300,    1,    1","  128,    1,    1",Kernel: SIMT
+313,0.00,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x256_ldg8_relu_f2f_stages_64x3_tn,765.02,0.00,238,"    8,   53,    1","  256,    1,    1",Kernel: SIMT
+314,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,96.99,0.00,16,"26650,    1,    1","  128,    1,    1",Kernel: SIMT
+315,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,58.56,0.00,32,"13325,    1,    1","  128,    1,    1",Kernel: SIMT
+316,0.00,elementwise_kernel,..direct_copy_kernel_cuda..,13.44,0.00,16," 1176,    1,    1","  128,    1,    1",Kernel: SIMT
+317,0.00,Kernel2,..cutlass_80_tensorop_bf16_s16816gemm_bf16_128x128_64x3_tn_align2..,54.02,0.00,244,"   64,    1,    1","  128,    1,    1",Kernel: SIMT
+318,0.00,CatArrayBatchedCopy_vectorized,..CatArrayBatchedCopy_vectorized..,11.78,0.00,19," 1024,    2,    1","  128,    1,    1",Kernel: SIMT
+319,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,10.94,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+320,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+321,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.27,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+322,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+323,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.27,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+324,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.62,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+325,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.77,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+326,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.23,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+327,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+328,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.70,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+329,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.37,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+330,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,104.80,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+331,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.90,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+332,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.58,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+333,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+334,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.14,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+335,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+336,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.86,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+337,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.72,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+338,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.54,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+339,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.26,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+340,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+341,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.44,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+342,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.21,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+343,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,104.83,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+344,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,17.18,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+345,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.55,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+346,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+347,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.34,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+348,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+349,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.82,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+350,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.91,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+351,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+352,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.49,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+353,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.54,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+354,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.73,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+355,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+356,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.06,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+357,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.67,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+358,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+359,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+360,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.46,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+361,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+362,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.50,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+363,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.50,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+364,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+365,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.42,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+366,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+367,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.22,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+368,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.24,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+369,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.09,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+370,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.70,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+371,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.65,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+372,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.15,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+373,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.59,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+374,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+375,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.08,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+376,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.01,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+377,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+378,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.52,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+379,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.34,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+380,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.60,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+381,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.18,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+382,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.25,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+383,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.83,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+384,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+385,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+386,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.69,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+387,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+388,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.89,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+389,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.01,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+390,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.74,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+391,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.26,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+392,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.18,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+393,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.47,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+394,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.34,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+395,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,104.86,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+396,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.77,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+397,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.26,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+398,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+399,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.04,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+400,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+401,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.57,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+402,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.69,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+403,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.74,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+404,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.33,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+405,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.38,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+406,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.47,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+407,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+408,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.28,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+409,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.67,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+410,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.36,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+411,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+412,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.10,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+413,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+414,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.18,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+415,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,38.59,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+416,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,17.02,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+417,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.36,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+418,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.63,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+419,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.40,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+420,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+421,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,104.99,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+422,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.74,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+423,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.33,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+424,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.34,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+425,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.69,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+426,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+427,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.43,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+428,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.49,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+429,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+430,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+431,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+432,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.30,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+433,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.34,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+434,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.25,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+435,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.86,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+436,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.36,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+437,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.50,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+438,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.66,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+439,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+440,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.82,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+441,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.26,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+442,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+443,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.42,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+444,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+445,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.37,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+446,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.27,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+447,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.31,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+448,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.70,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+449,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.55,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+450,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+451,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.91,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+452,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.60,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+453,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.95,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+454,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.39,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+455,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+456,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.36,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+457,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+458,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.30,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+459,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.37,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+460,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.31,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+461,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.86,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+462,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+463,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.38,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+464,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.07,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+465,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+466,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.08,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+467,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.26,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+468,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,17.12,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+469,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.39,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+470,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.44,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+471,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.98,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+472,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.34,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+473,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.86,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+474,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.61,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+475,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.65,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+476,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.31,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+477,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.30,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+478,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+479,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.79,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+480,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.58,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+481,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.58,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+482,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.17,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+483,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+484,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.18,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+485,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.37,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+486,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.25,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+487,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+488,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.23,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+489,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.41,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+490,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.01,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+491,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+492,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.57,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+493,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.36,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+494,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.67,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+495,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.49,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+496,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.44,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+497,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.18,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+498,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.34,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+499,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.70,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+500,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+501,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+502,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.18,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+503,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.14,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+504,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+505,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.82,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+506,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.36,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+507,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.67,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+508,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.55,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+509,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+510,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.56,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+511,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+512,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.63,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+513,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.90,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+514,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+515,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+516,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.17,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+517,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.60,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+518,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.79,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+519,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.30,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+520,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+521,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+522,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.38,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+523,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.27,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+524,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.56,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+525,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.25,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+526,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.93,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+527,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.26,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+528,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+529,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.01,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+530,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.57,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+531,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.05,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+532,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.33,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+533,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+534,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+535,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.44,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+536,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.24,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+537,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.27,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+538,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.31,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+539,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.70,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+540,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+541,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+542,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,62.94,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+543,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.60,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+544,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.73,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+545,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.30,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+546,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.74,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+547,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+548,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.22,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+549,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.02,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+550,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.40,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+551,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.34,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+552,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+553,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.26,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+554,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.50,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+555,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.23,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+556,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.47,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+557,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.73,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+558,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.39,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+559,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+560,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.42,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+561,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.54,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+562,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,117.98,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+563,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.34,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+564,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.28,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+565,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.80,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+566,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+567,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+568,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.01,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+569,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+570,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.60,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+571,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.30,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+572,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.64,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+573,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.39,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+574,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+575,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.30,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+576,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.40,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+577,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.38,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+578,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.90,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+579,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+580,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.25,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+581,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.10,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+582,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+583,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.92,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+584,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.52,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+585,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.74,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+586,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+587,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.18,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+588,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.18,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+589,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.24,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+590,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.28,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+591,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.86,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+592,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.46,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+593,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.31,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+594,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.04,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+595,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.54,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+596,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.73,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+597,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.71,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+598,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.70,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+599,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.65,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+600,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.54,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+601,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.08,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+602,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.24,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+603,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.34,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+604,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.61,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+605,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.55,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+606,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.50,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+607,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.14,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+608,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.44,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+609,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,98.18,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+610,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.58,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+611,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.54,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+612,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.52,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+613,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.15,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+614,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.30,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+615,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+616,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.38,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+617,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.96,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+618,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.58,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+619,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.28,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+620,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,63.04,0.00,222,"   12,    9,    1","  256,    1,    1",Kernel: SIMT
+621,0.00,elementwise_kernel_with_index,..elementwise_kernel_with_index..,5.60,0.00,16,"    1,    1,    1","   64,    1,    1",Kernel: SIMT
+622,0.00,flash_fwd_kernel,..Flash_fwd_kernel_traits..,97.92,0.00,255,"    9,    1,   16","  128,    1,    1",Kernel: SIMT
+623,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,39.36,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+624,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.90,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+625,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.42,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
+626,0.00,vectorized_layer_norm_kernel,..vectorized_layer_norm_kernel..,17.18,0.00,31," 1025,    1,    1","   32,    4,    1",Kernel: SIMT
+627,0.00,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,ampere_bf16_s16816gemm_bf16_256x128_ldg8_relu_f2f_stages_32x3_tn,118.30,0.00,222,"   16,    9,    1","  256,    1,    1",Kernel: SIMT
+628,0.00,vectorized_elementwise_kernel,..GeluCUDAKernelImpl..,22.30,0.00,32," 4100,    1,    1","  128,    1,    1",Kernel: SIMT
+629,0.00,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,ampere_bf16_s16816gemm_bf16_128x128_ldg8_relu_f2f_stages_64x3_tn,105.63,0.00,246,"    8,    9,    1","  128,    1,    1",Kernel: SIMT
+630,0.00,elementwise_kernel,..BinaryFunctor..binary_internal..,16.58,0.00,16," 2050,    1,    1","  128,    1,    1",Kernel: SIMT
+631,0.00,vectorized_elementwise_kernel,..vectorized_elementwise_kernel..,11.30,0.00,32," 1025,    1,    1","  128,    1,    1",Kernel: SIMT
