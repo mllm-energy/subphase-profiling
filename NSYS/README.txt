@@ -1,0 +1,2 @@
+CLI: 
+nsys profile   --trace=cuda,nvtx,osrt   --cuda-graph-trace=node   --trace-fork-before-exec=true   --nvtx-capture=range@InternVL_LLM_Decode   --force-overwrite true   --output=InternVL_Timeline   /home/cc/mlenv/bin/python   subphase-profiling/NCU-Profiling-Guide/profile_system.py
