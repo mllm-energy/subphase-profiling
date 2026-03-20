@@ -128,9 +128,13 @@ Person A wants to share the GPU with Person B
 The person A will run this on the instance.
 
 sudo su - cc
+
 mkdir -p ~/.ssh
+
 chmod 700 ~/.ssh
+
 echo "<Person-B-public-key>" >> ~/.ssh/authorized_keys
+
 chmod 600 ~/.ssh/authorized_keys
 
 "<Person-B-public-key>" 
