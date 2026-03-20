@@ -120,3 +120,30 @@ Use your venv Python (e.g. `../.venv/bin/python3` when the venv is in the repo r
 **Viewing results:** Open `InternVL_Timeline.nsys-rep` in the Nsight Systems GUI (download from NVIDIA). The timeline shows NVTX rows with `CLOSED_LOOP_INFERENCE` as the outer range and `InternVL_Vision_Encoder`, `InternVL_MLP_Connector`, `InternVL_LLM_Prefill`, `InternVL_LLM_Decode` nested inside.
 
 **Connecting nsys + NCU:** Kernel names link the two. In nsys you see which kernels run in which subphase and how long they take; in NCU you see detailed hardware metrics for those same kernels.
+
+### Sharing a GPU
+
+Person A wants to share the GPU with Person B
+
+The person A will run this on the instance.
+
+sudo su - cc
+mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+echo "<Person-B-public-key>" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+"<Person-B-public-key>" 
+Their will be a private/public key pair in your .ssh folder
+
+<key-name>.pub is the public key
+<key-name> is private (DO NOT POST THIS ANYWHERE even ChatGPT conversations)
+If it doesn't exist, you can make it with a command
+
+make sure the config file is up to date
+
+Try SSHing. 
+
+If there is an issue, it might be detecting a middle-man attack. To get around this, run this command:
+ssh-keygen -R 129.114.108.218
+This will remove the fingerprint from known_hosts so you will need to say yes when you sign in again.
