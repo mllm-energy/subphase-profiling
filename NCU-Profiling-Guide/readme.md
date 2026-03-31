@@ -88,21 +88,21 @@ Note: ncu strictly requires sudo privileges to access the physical hardware perf
 ```bash
 sudo /usr/local/cuda/bin/ncu --nvtx --nvtx-include "InternVL_Vision_Encoder/" \
     --metrics sm__throughput.avg.pct_of_peak_sustained_elapsed,dram__throughput.avg.pct_of_peak_sustained_elapsed,sm__cycles_active.avg.pct_of_peak_sustained_elapsed,launch__grid_size \
-    -o ncu_vision_encoder_test1 python3 profile_suite.py
+    -o ncu_vision_encoder_test1 /home/cc/vllm/.venv/bin/python profile_suite.py
 ```
 
 # 2. Profile LLM Prefill
 ```bash
 sudo /usr/local/cuda/bin/ncu --nvtx --nvtx-include "InternVL_LLM_Prefill/" \
     --metrics sm__throughput.avg.pct_of_peak_sustained_elapsed,dram__throughput.avg.pct_of_peak_sustained_elapsed,sm__cycles_active.avg.pct_of_peak_sustained_elapsed,launch__grid_size \
-    -o ncu_llm_prefill_test1 python3 profile_suite.py
+    -o ncu_llm_prefill_test1 /home/cc/vllm/.venv/bin/python profile_suite.py
 ```
 
 # 3. Profile LLM Decode
 ```bash
 sudo /usr/local/cuda/bin/ncu --nvtx --nvtx-include "InternVL_LLM_Decode/" \
     --metrics sm__throughput.avg.pct_of_peak_sustained_elapsed,dram__throughput.avg.pct_of_peak_sustained_elapsed,sm__cycles_active.avg.pct_of_peak_sustained_elapsed,launch__grid_size \
-    -o ncu_decode_test1 python3 profile_suite.py
+    -o ncu_decode_test1 /home/cc/vllm/.venv/bin/python profile_suite.py
 ```
 
 # Export NCU Data to CSV
