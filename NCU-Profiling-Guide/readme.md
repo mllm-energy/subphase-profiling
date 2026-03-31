@@ -37,7 +37,7 @@ Check if `uv` installed by `uv --version`.
 
 From inside the `vllm` directory with the venv activated, install the specific libraries required to run InternVL3 within the vLLM engine:
 
-- `VLLM_USE_PRECOMPILED=1 uv pip install --editable .` (single command with the env var)
+- `VLLM_USE_PRECOMPILED=1 uv pip install --editable .` (single command with the env var) (NOTE: THIS MIGHT NOT WORK, IF IT DOESN'T WORK TRY TO DOWNGRADE  TO AN OLD COMMIT OF VLLM USING THIS COMMAND -> export VLLM_PRECOMPILED_WHEEL_COMMIT=$(git rev-parse HEAD~2))
 - `pip install torch torchvision torchaudio timm einops pillow`
 
 ### 4. Model Code Modifications
@@ -45,7 +45,7 @@ From inside the `vllm` directory with the venv activated, install the specific l
 To enable precise profiling of sub-phases, we modified the vLLM source code to include NVTX markers.
 This allows the profiler to see where the model forward pass begins and ends.
 
-Copy NCU-Profiling-Guide/internvl.py to your vllm clone
+Check internvl.py and look for NVTX using ctrl-f, look at places I add the code and then look at the current internvl.py file from the version of the repo you just copied to see where to add NVTX ranges. You cannot copy paste the file in the repo because VLLM source code is continuously changing.
 
 Adds NVTX markers for Vision Encoder vs LLM prefill vs decode
 
@@ -53,7 +53,7 @@ Adds NVTX markers for Vision Encoder vs LLM prefill vs decode
 
 I created a specialized script which the profiler uses to run the closed-loop request cycle, and generate outputs.
 
-The script profile_suite.py is in NCU-Profiling-Guide/ in this repo. Place it in the directory which contains all the files you need to be called with the command
+The script profile_suite.py is in NCU-Profiling-Guide/ in this repo. Place it in the directory which contains all the files you need to be called with the command. This script should work if it doesn't try prompting AI to see the issue based on terminal output.
 
 ### 6. Profiling Commands
 
