@@ -1184,18 +1184,20 @@ class InternVLChatModel(nn.Module, SupportsMultiModal, SupportsPP, SupportsLoRA)
         return x
 
     def extract_feature(self, pixel_values: torch.Tensor) -> torch.Tensor:
+
         torch.cuda.nvtx.range_push("InternVL_Vision_Encoder")
+
         vit_embeds = self.vision_model(pixel_values=pixel_values)
-        torch.cuda.nvtx.range_pop()
         vit_embeds = vit_embeds[:, 1:, :]
 
         h = w = int(vit_embeds.shape[1] ** 0.5)
         vit_embeds = vit_embeds.reshape(vit_embeds.shape[0], h, w, -1)
         vit_embeds = self.pixel_shuffle(vit_embeds, scale_factor=self.downsample_ratio)
         vit_embeds = vit_embeds.reshape(vit_embeds.shape[0], -1, vit_embeds.shape[-1])
-        torch.cuda.nvtx.range_push("InternVL_MLP_Connector")
         vit_embeds = self.mlp1(vit_embeds)
+
         torch.cuda.nvtx.range_pop()
+
         return vit_embeds
 
     def _parse_and_validate_image_input(
@@ -1351,7 +1353,6 @@ class InternVLChatModel(nn.Module, SupportsMultiModal, SupportsPP, SupportsLoRA)
         multimodal_embeddings: MultiModalEmbeddings | None = None,
         *,
         is_multimodal: torch.Tensor | None = None,
-        handle_oov_mm_token: bool = False,
     ) -> torch.Tensor:
         if multimodal_embeddings is not None and len(multimodal_embeddings) > 0:
             self._set_visual_token_mask(input_ids)
@@ -1364,7 +1365,6 @@ class InternVLChatModel(nn.Module, SupportsMultiModal, SupportsPP, SupportsLoRA)
             input_ids,
             multimodal_embeddings=multimodal_embeddings,
             is_multimodal=is_multimodal,
-            handle_oov_mm_token=handle_oov_mm_token,
         )
 
     def forward(
@@ -1390,14 +1390,30 @@ class InternVLChatModel(nn.Module, SupportsMultiModal, SupportsPP, SupportsLoRA)
             forward_kwargs.update({"visual_token_mask": self.visual_token_mask})
             self.visual_token_mask = None
 
+
+        num_tokens = positions.numel()
+        self._current_profiling_phase = "InternVL_LLM_Prefill" if num_tokens > 1 else "InternVL_LLM_Decode"
+        torch.cuda.nvtx.range_push(self._current_profiling_phase)
+
         hidden_states = self.language_model.model(**forward_kwargs)
+
+        torch.cuda.nvtx.range_pop()
+
         return hidden_states
 
     def compute_logits(
         self,
         hidden_states: torch.Tensor,
     ) -> torch.Tensor | None:
-        return self.language_model.compute_logits(hidden_states)
+
+        phase = getattr(self, "_current_profiling_phase", "InternVL_LLM_Decode")
+        torch.cuda.nvtx.range_push(phase)
+        
+        logits = self.language_model.compute_logits(hidden_states)
+        
+        torch.cuda.nvtx.range_pop()
+
+        return logits
 
     def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
         # unused modules appear in OpenGVLab/InternVideo2_5_Chat_8B
