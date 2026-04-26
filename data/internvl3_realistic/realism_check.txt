@@ -1,0 +1,22 @@
+==========================================================================================
+           REALISM CHECK: small workload vs realistic workload (default clock)            
+==========================================================================================
+
+Small workload   : 70-token prompt, 1 vision tile (eer.jpg @ 448x448)
+Realistic        : 535-token prompt, 10 vision tiles (eer.jpg @ 1344x1344)
+
+Phase                        old dur ms     new dur ms    old J          new J   dur ratio
+------------------------------------------------------------------------------------------
+CLOSED_LOOP_INFERENCE           1777.63   2039.48±25.1   261.34    363.16±11.7       1.15x
+InternVL_LLM_Prefill             109.89    160.58±22.0    13.73     28.07±9.8       1.46x
+InternVL_LLM_Decode             7230.16   7871.01±26.6  1083.19   1300.63±11.5       1.09x
+InternVL_Vision_Encoder          430.55    842.21±281.1    38.36     71.13±20.6       1.96x
+InternVL_MLP_Connector             1.84      1.92±0.1     0.25      0.25±0.0       1.04x
+
+Interpretation:
+  - Ratios near 1.0 indicate the GPU absorbed the larger workload at b=1
+    without proportional runtime growth — i.e., even more underutilized
+    headroom than the small-workload sweep showed.
+  - Larger ratios (>>1) would indicate the workload is now saturating the GPU
+    differently (i.e., the original results don't generalize).
+
