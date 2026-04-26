@@ -10,7 +10,7 @@ torch.set_grad_enabled(False)
 # 1. MODEL SETUP — caches disabled so every
 #    request actually runs Prefill + Vision Encoder
 # ==========================================
-model_name = "OpenGVLab/InternVL3-8B"
+model_name = "llava-hf/llava-1.5-7b-hf"
 print(f"Loading {model_name}...")
 
 llm = LLM(
@@ -26,10 +26,9 @@ llm = LLM(
 
 # ==========================================
 # 2. INPUT SETUP — 5 distinct (image, prompt) pairs.
-#    Variants produce different MM hashes, so the
-#    encoder cache never hits between iterations.
+#    LLaVA-1.5 prompt format: "USER: <image>\n{question}\nASSISTANT:"
 # ==========================================
-base = Image.open("eer.jpg").convert("RGB").resize((448, 448))
+base = Image.open("eer.jpg").convert("RGB").resize((336, 336))
 base_arr = np.asarray(base, dtype=np.uint8)
 
 def make_variant(seed: int) -> Image.Image:
@@ -37,13 +36,14 @@ def make_variant(seed: int) -> Image.Image:
     noise = rng.integers(-2, 3, size=base_arr.shape, dtype=np.int16)
     return Image.fromarray(np.clip(base_arr.astype(np.int16) + noise, 0, 255).astype(np.uint8))
 
-PROMPTS = [
-    "<image>\nWhat building is this? Describe it in detail. Taken from Austin, Texas.",
-    "<image>\nIdentify the architectural style of this structure and its likely purpose.",
-    "<image>\nList the prominent features visible in this photograph, top to bottom.",
-    "<image>\nWhat materials appear to be used in the construction shown here?",
-    "<image>\nDescribe the lighting, weather, and time of day captured in this image.",
+QUESTIONS = [
+    "What building is this? Describe it in detail. Taken from Austin, Texas.",
+    "Identify the architectural style of this structure and its likely purpose.",
+    "List the prominent features visible in this photograph, top to bottom.",
+    "What materials appear to be used in the construction shown here?",
+    "Describe the lighting, weather, and time of day captured in this image.",
 ]
+PROMPTS = [f"USER: <image>\n{q}\nASSISTANT:" for q in QUESTIONS]
 images = [make_variant(seed=i) for i in range(len(PROMPTS))]
 
 def request(i: int):
