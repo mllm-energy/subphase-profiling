@@ -1,0 +1,5 @@
+aggregating /home/cc/results_outputheavy (workload=outputheavy)
+  wrote /home/cc/results_outputheavy/kernel_traces.csv (13030 rows)
+  wrote /home/cc/results_outputheavy/phase_durations.csv (25 rows)
+  wrote /home/cc/results_outputheavy/end_to_end.csv (5 rows)
+done

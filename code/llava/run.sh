@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
 # LLaVA-1.5-7B measurement drivers (nsys + power + NCU).
-# Default (no args): full realistic overnight pipeline (freq sweep + batch + zip).
+# Two workloads with identical structure (LLaVA-1.5 has fixed 336x336 image
+# size, so the workload axis here is purely output-token count):
+#   inputheavy  -> 128 input tokens, 16  output tokens
+#   outputheavy -> 128 input tokens, 256 output tokens
 #
 # Usage:
 #   ./run.sh [command] [args...]
 #
-#   realistic   P0 default clock + 5-freq sweep + batch sweep + combined_energy + zip
-#   batch       batch sweep only (under $LLAVA_RESULTS/batch_sweep by default)
-#   ncu-sweep   four NCU phases only (small profile; writes under LLAVA_NCU_SWEEP_OUT)
-#   one <label> <outdir> [profile.py]   3× nsys+power + NCU; default profile = profile_llava_realistic.py
+#   inputheavy           freq sweep + batch sweep + combined_energy + zip
+#   outputheavy          same but output-heavy
+#   batch <workload>     batch sweep only for one workload
+#   ncu-sweep <workload> four NCU phases only for one workload
+#   one <wl> <label> <outdir>   3x nsys+power + NCU at one config
 #   help
 #
-# Env: LLAVA_RESULTS, LLAVA_ZIP, LLAVA_MODEL_PREFIX, LLAVA_SKIP_ZIP=1,
-#      LLAVA_NCU_SWEEP_OUT, NVTX_PHASES (set automatically from prefix)
+# Env: LLAVA_RESULTS_INPUTHEAVY  (default /home/cc/results_llava_inputheavy)
+#      LLAVA_RESULTS_OUTPUTHEAVY (default /home/cc/results_llava_outputheavy)
+#      LLAVA_ZIP_INPUTHEAVY, LLAVA_ZIP_OUTPUTHEAVY
+#      LLAVA_MODEL_PREFIX (default LLaVA; must match NVTX strings in patched files)
+#      LLAVA_SKIP_ZIP=1
 set -u
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SHELL_DIR="$SCRIPT_DIR/shell"
@@ -24,18 +31,27 @@ source "$SHELL_DIR/ncu_phases.sh"
 P="$LLAVA_MODEL_PREFIX"
 export NVTX_PHASES="CLOSED_LOOP_INFERENCE,${P}_LLM_Prefill,${P}_LLM_Decode,${P}_Vision_Encoder,${P}_MLP_Connector"
 
-RESULTS="${LLAVA_RESULTS:-/home/cc/results_llava}"
-ZIP_OUT="${LLAVA_ZIP:-/home/cc/results_llava_overnight.zip}"
-PROFILE_REALISTIC="$PROFILING_DIR/profile_llava_realistic.py"
-PROFILE_SMALL="$PROFILING_DIR/profile_llava.py"
-PROFILE_BATCH="$PROFILING_DIR/profile_llava_batch.py"
 NCU=/usr/local/cuda/bin/ncu
 NSYS=/usr/local/cuda/bin/nsys
 METRICS="sm__throughput.avg.pct_of_peak_sustained_elapsed,dram__throughput.avg.pct_of_peak_sustained_elapsed"
 FREQS=(210 510 810 1110 1410)
 export VLLM_ENABLE_V1_MULTIPROCESSING=0
 
-# Mean+std of rep_*/phase_energy.csv → phase_energy_agg.csv
+RESULTS_IH="${LLAVA_RESULTS_INPUTHEAVY:-/home/cc/results_llava_inputheavy}"
+RESULTS_OH="${LLAVA_RESULTS_OUTPUTHEAVY:-/home/cc/results_llava_outputheavy}"
+ZIP_IH="${LLAVA_ZIP_INPUTHEAVY:-/home/cc/results_llava_inputheavy.zip}"
+ZIP_OH="${LLAVA_ZIP_OUTPUTHEAVY:-/home/cc/results_llava_outputheavy.zip}"
+PROFILE_IH="$PROFILING_DIR/profile_llava_inputheavy.py"
+PROFILE_OH="$PROFILING_DIR/profile_llava_outputheavy.py"
+
+resolve_workload() {
+  case "$1" in
+    inputheavy)  echo "$RESULTS_IH" "$ZIP_IH" "$PROFILE_IH" ;;
+    outputheavy) echo "$RESULTS_OH" "$ZIP_OH" "$PROFILE_OH" ;;
+    *) echo "unknown workload: $1 (expected inputheavy|outputheavy)" >&2; return 1 ;;
+  esac
+}
+
 aggregate_phase_energy_reps() {
   _AR_PARENT="$1" _AR_OUT="$2" python3 <<'PY'
 import csv, glob, os
@@ -100,8 +116,8 @@ cleanup_clocks() {
   sudo nvidia-smi -rgc >/dev/null 2>&1 || true
 }
 
-one_freq_v2() {
-  local FREQ_LABEL="$1" OUTDIR="$2" PROFILE="${3:-$PROFILE_REALISTIC}"
+one_freq() {
+  local FREQ_LABEL="$1" OUTDIR="$2" PROFILE="$3"
   mkdir -p "$OUTDIR"
   echo "[$(date +%H:%M:%S)] === freq=$FREQ_LABEL profile=$(basename "$PROFILE") out=$OUTDIR ==="
   nvidia-smi --query-gpu=clocks.gr,clocks.mem --format=csv,noheader
@@ -110,7 +126,7 @@ one_freq_v2() {
   for rep in $(seq 1 "$N_REPS"); do
     local REP_DIR="$OUTDIR/rep_$rep"
     mkdir -p "$REP_DIR"
-    echo "[$(date +%H:%M:%S)]   A.$rep) nsys + power (rep $rep/$N_REPS)"
+    echo "[$(date +%H:%M:%S)]   nsys+power rep $rep/$N_REPS"
     local PWR_CSV="$REP_DIR/power_samples.csv"
     bash "$SHELL_DIR/power_sample.sh" "$PWR_CSV" &
     local PWR_PID=$!
@@ -129,55 +145,56 @@ one_freq_v2() {
   aggregate_phase_energy_reps "$OUTDIR" "$OUTDIR/phase_energy_agg.csv" \
     > "$OUTDIR/aggregate_log.txt" 2>&1 || echo "  aggregation failed"
 
-  echo "[$(date +%H:%M:%S)]   B) ncu 4-phase sweep"
-  local row name filter count log rep
+  echo "[$(date +%H:%M:%S)]   ncu 4-phase sweep"
+  local row name filter count log ncurep
   for row in "${LLAVA_NCU_PHASE_ROWS[@]}"; do
     read -r name filter count <<< "$row"
     log="$OUTDIR/${name}_log.txt"
-    rep="$OUTDIR/${name}"
+    ncurep="$OUTDIR/${name}"
     echo "[$(date +%H:%M:%S)]      ncu phase: $name (lc=$count)"
     sudo -E env VLLM_ENABLE_V1_MULTIPROCESSING=0 PATH="$PATH" HOME="$HOME" \
       "$NCU" --nvtx --nvtx-include "$filter" \
       --metrics "$METRICS" --target-processes all \
       --replay-mode application --launch-count "$count" \
-      -o "$rep" python3 "$PROFILE" \
-      > "$log" 2>&1
-    if [[ $? -ne 0 ]]; then
-      echo "[$(date +%H:%M:%S)]      FAILED: $name"
-    fi
+      -o "$ncurep" python3 "$PROFILE" \
+      > "$log" 2>&1 \
+      || echo "[$(date +%H:%M:%S)]      FAILED: $name"
   done
-
   echo "[$(date +%H:%M:%S)] === freq=$FREQ_LABEL done ==="
 }
 
 cmd_ncu_sweep() {
-  local OUT="${LLAVA_NCU_SWEEP_OUT:-$RESULTS/ncu_sweep}"
+  local WL="$1"
+  read -r RESULTS _ PROFILE <<< "$(resolve_workload "$WL")" || exit 1
+  local OUT="$RESULTS/ncu_sweep"
   mkdir -p "$OUT"
-  echo "[$(date +%H:%M:%S)] ncu-sweep → $OUT (profile=$(basename "$PROFILE_SMALL"))"
-  local row name filter count log rep
+  echo "[$(date +%H:%M:%S)] ncu-sweep ($WL) -> $OUT"
+  local row name filter count log ncurep
   for row in "${LLAVA_NCU_PHASE_ROWS[@]}"; do
     read -r name filter count <<< "$row"
     echo "[$(date +%H:%M:%S)] Phase: $name"
     log="$OUT/${name}_log.txt"
-    rep="$OUT/${name}"
+    ncurep="$OUT/${name}"
     sudo -E env VLLM_ENABLE_V1_MULTIPROCESSING=0 PATH="$PATH" HOME="$HOME" \
       "$NCU" --nvtx --nvtx-include "$filter" \
       --metrics "$METRICS" --target-processes all \
       --replay-mode application --launch-count "$count" \
-      -o "$rep" python3 "$PROFILE_SMALL" \
+      -o "$ncurep" python3 "$PROFILE" \
       > "$log" 2>&1 || tail -20 "$log"
   done
   ls -la "$OUT"/*.ncu-rep 2>/dev/null || true
 }
 
 cmd_batch_sweep() {
-  local OUTROOT="${1:-$RESULTS/batch_sweep}"
+  local WL="$1"
+  read -r RESULTS _ PROFILE <<< "$(resolve_workload "$WL")" || exit 1
+  local OUTROOT="$RESULTS/batch_sweep"
   mkdir -p "$OUTROOT"
-  echo "[$(date +%H:%M:%S)] === BATCH SWEEP START → $OUTROOT ==="
+  echo "[$(date +%H:%M:%S)] === BATCH SWEEP START ($WL) -> $OUTROOT ==="
   nvidia-smi --query-gpu=clocks.current.graphics,clocks.current.memory --format=csv,noheader
 
   local B rep BDIR REP_DIR PWR_CSV PWR_PID
-  for B in 1 4 8 16; do
+  for B in 1 2 4 8 16; do
     BDIR="$OUTROOT/b$B"
     mkdir -p "$BDIR"
     echo "[$(date +%H:%M:%S)] --- batch=$B ---"
@@ -191,7 +208,7 @@ cmd_batch_sweep() {
       sleep 0.3
       BATCH_SIZE=$B "$NSYS" profile --trace=cuda,nvtx --force-overwrite=true \
         -o "$REP_DIR/timeline" \
-        python3 "$PROFILE_BATCH" \
+        python3 "$PROFILE" \
         > "$REP_DIR/nsys_log.txt" 2>&1 \
         || echo "[$(date +%H:%M:%S)]   FAILED rep $rep at B=$B (continuing)"
       kill "$PWR_PID" 2>/dev/null || true
@@ -248,33 +265,14 @@ Packaged $(date). scp user@host:${ZIP_PATH} ~/Downloads/
 EOF
 }
 
-write_llava_download_readme() {
-  local parent zip_path
-  parent="$(dirname "$RESULTS")"
-  zip_path="$ZIP_OUT"
-  cat > "${parent}/README_DOWNLOAD_LLAVA.txt" <<EOF
-LLaVA-1.5-7B sweep finished at $(date).
-On your laptop:
-  scp cc@<chameleon-ip>:${zip_path} ~/Downloads/
-
-Contents:
-  $(basename "$RESULTS")/freq_default/, freq_{210,510,810,1110,1410}MHz/   per-freq runs
-    rep_1/ rep_2/ rep_3/             nsys+power per rep
-      timeline.nsys-rep, power_samples.csv, phase_energy.csv
-    phase_energy_agg.csv             mean+std across the 3 reps
-    {Prefill,Decode,Vision_Encoder,MLP_Connector}.ncu-rep
-  $(basename "$RESULTS")/batch_sweep/b{1,4,8,16}/  batch sweep at default clock (no ncu)
-    rep_1/ rep_2/ rep_3/, phase_energy_agg.csv
-  $(basename "$RESULTS")/combined_energy.csv       all freqs joined
-  $(basename "$RESULTS")/sweep_log.txt             full driver log (if redirected)
-EOF
-}
-
-cmd_overnight_realistic() {
+cmd_overnight() {
+  local WL="$1"
+  local RESULTS ZIP_OUT PROFILE
+  read -r RESULTS ZIP_OUT PROFILE <<< "$(resolve_workload "$WL")" || exit 1
   mkdir -p "$RESULTS"
   trap 'echo "[$(date +%H:%M:%S)] cleanup: resetting GPU clocks"; cleanup_clocks' EXIT
 
-  echo "[$(date +%H:%M:%S)] === LLaVA OVERNIGHT START (realistic + batch) ==="
+  echo "[$(date +%H:%M:%S)] === LLaVA OVERNIGHT START ($WL) ==="
   echo "host: $(hostname)  user: $(whoami)"
   echo "model_prefix: $P  outroot: $RESULTS"
   echo "NVTX_PHASES=$NVTX_PHASES"
@@ -282,7 +280,7 @@ cmd_overnight_realistic() {
   sudo nvidia-smi -pm 1 >/dev/null 2>&1 || true
 
   echo "[$(date +%H:%M:%S)] === P0: baseline at default clock ==="
-  one_freq_v2 "default" "$RESULTS/freq_default" "$PROFILE_REALISTIC" || true
+  one_freq "default" "$RESULTS/freq_default" "$PROFILE" || true
 
   local f
   for f in "${FREQS[@]}"; do
@@ -295,14 +293,14 @@ cmd_overnight_realistic() {
     sleep 2
     actual=$(nvidia-smi --query-gpu=clocks.current.graphics --format=csv,noheader,nounits)
     echo "[$(date +%H:%M:%S)]   locked. actual clocks.gr=${actual}MHz"
-    one_freq_v2 "$f" "$RESULTS/freq_${f}MHz" "$PROFILE_REALISTIC" || true
+    one_freq "$f" "$RESULTS/freq_${f}MHz" "$PROFILE" || true
     cleanup_clocks
     sleep 2
   done
 
   echo
   echo "[$(date +%H:%M:%S)] === BATCH SWEEP ==="
-  cmd_batch_sweep "$RESULTS/batch_sweep"
+  cmd_batch_sweep "$WL"
 
   echo
   echo "[$(date +%H:%M:%S)] === aggregating combined_energy.csv ==="
@@ -311,45 +309,56 @@ cmd_overnight_realistic() {
   if [[ "${LLAVA_SKIP_ZIP:-}" != "1" ]]; then
     echo
     echo "[$(date +%H:%M:%S)] === packaging zip ==="
-    zip_results "$RESULTS" "$ZIP_OUT" "README_DOWNLOAD_LLAVA.txt"
-    write_llava_download_readme
+    zip_results "$RESULTS" "$ZIP_OUT" "README_DOWNLOAD_LLAVA_${WL}.txt"
   fi
 
-  echo "[$(date +%H:%M:%S)] === LLaVA OVERNIGHT DONE ==="
+  echo "[$(date +%H:%M:%S)] === LLaVA OVERNIGHT DONE ($WL) ==="
   cleanup_clocks
 }
 
 usage() {
   cat <<'EOF'
-Usage: ./run.sh [command]
-  realistic   full pipeline (default): freq sweep + batch + combined_energy + zip
-  batch       batch sweep only (outroot = $LLAVA_RESULTS/batch_sweep)
-  ncu-sweep   four NCU phases with small profile (out = $LLAVA_NCU_SWEEP_OUT)
-  one <label> <outdir> [profile.py]
+Usage: ./run.sh [command] [args...]
+  inputheavy           full pipeline: freq sweep + batch + combine + zip
+  outputheavy          full pipeline: freq sweep + batch + combine + zip
+  batch <workload>     batch sweep only
+  ncu-sweep <workload> four NCU phases only
+  one <workload> <label> <outdir>   one-config nsys+power+NCU
   help
-Env: LLAVA_RESULTS (default /home/cc/results_llava), LLAVA_ZIP, LLAVA_MODEL_PREFIX,
-     LLAVA_SKIP_ZIP=1, LLAVA_NCU_SWEEP_OUT, NVTX_PHASES (auto-set from prefix)
+
+Workloads (LLaVA-1.5 has fixed 336x336 image; axis is output-token count):
+  inputheavy   128 in, 16  out
+  outputheavy  128 in, 256 out
+
+Env: LLAVA_RESULTS_INPUTHEAVY, LLAVA_RESULTS_OUTPUTHEAVY,
+     LLAVA_ZIP_INPUTHEAVY, LLAVA_ZIP_OUTPUTHEAVY,
+     LLAVA_MODEL_PREFIX (default LLaVA), LLAVA_SKIP_ZIP=1
 EOF
 }
 
 main() {
-  local cmd="${1:-realistic}"
+  local cmd="${1:-help}"
   case "$cmd" in
     help|-h|--help) usage; exit 0 ;;
-    realistic)
-      cmd_overnight_realistic
-      ;;
+    inputheavy)  cmd_overnight inputheavy ;;
+    outputheavy) cmd_overnight outputheavy ;;
     batch)
-      shift || true
-      cmd_batch_sweep "${1:-$RESULTS/batch_sweep}"
+      shift
+      [[ $# -ge 1 ]] || { echo "usage: $0 batch <workload>"; exit 1; }
+      cmd_batch_sweep "$1"
       ;;
     ncu-sweep)
-      cmd_ncu_sweep
+      shift
+      [[ $# -ge 1 ]] || { echo "usage: $0 ncu-sweep <workload>"; exit 1; }
+      cmd_ncu_sweep "$1"
       ;;
     one)
       shift
-      [[ $# -ge 2 ]] || { echo "usage: $0 one <label> <outdir> [profile.py]" >&2; exit 1; }
-      one_freq_v2 "$1" "$2" "${3:-$PROFILE_REALISTIC}"
+      [[ $# -ge 3 ]] || { echo "usage: $0 one <workload> <label> <outdir>"; exit 1; }
+      local WL="$1" LABEL="$2" OUTDIR="$3"
+      local _R _Z PROFILE
+      read -r _R _Z PROFILE <<< "$(resolve_workload "$WL")" || exit 1
+      one_freq "$LABEL" "$OUTDIR" "$PROFILE"
       ;;
     *)
       echo "unknown command: $cmd" >&2

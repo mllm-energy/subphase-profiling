@@ -23,13 +23,37 @@ session_start_ns = row[0] if row else 0
 if session_start_ns == 0:
     print("warning: no session start anchor; assuming nsys timestamps already wall-clock", file=sys.stderr)
 
-phases = ['CLOSED_LOOP_INFERENCE', 'InternVL_LLM_Prefill', 'InternVL_LLM_Decode',
-          'InternVL_Vision_Encoder', 'InternVL_MLP_Connector']
+CLOSED_LOOP = 'CLOSED_LOOP_INFERENCE'
+INNER_PHASES = ['InternVL_LLM_Prefill', 'InternVL_LLM_Decode',
+                'InternVL_Vision_Encoder', 'InternVL_MLP_Connector']
+phases = [CLOSED_LOOP] + INNER_PHASES
 nvtx_windows = defaultdict(list)
-for ph in phases:
+
+# Collect CLOSED_LOOP_INFERENCE windows first; inner phases are filtered to
+# events nested inside one of these so warmup-call NVTX events do not pollute
+# the per-phase totals.
+cur.execute("SELECT start, end FROM NVTX_EVENTS WHERE text=?", (CLOSED_LOOP,))
+for s, e in cur.fetchall():
+    nvtx_windows[CLOSED_LOOP].append((session_start_ns + s, session_start_ns + e))
+
+closed_loop_windows = nvtx_windows[CLOSED_LOOP]
+
+
+def _is_nested(s_ns, e_ns):
+    for cs, ce in closed_loop_windows:
+        if cs <= s_ns and e_ns <= ce:
+            return True
+    return False
+
+
+for ph in INNER_PHASES:
     cur.execute("SELECT start, end FROM NVTX_EVENTS WHERE text=?", (ph,))
     for s, e in cur.fetchall():
-        nvtx_windows[ph].append((session_start_ns + s, session_start_ns + e))
+        ws, we = session_start_ns + s, session_start_ns + e
+        # If no CLOSED_LOOP windows exist (e.g., script ran without the
+        # outer push/pop), keep all events to avoid silently emptying output.
+        if not closed_loop_windows or _is_nested(ws, we):
+            nvtx_windows[ph].append((ws, we))
 
 # Load power samples
 samples = []  # (ts_ns, power_w)

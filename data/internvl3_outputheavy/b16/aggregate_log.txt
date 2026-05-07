@@ -1,0 +1,1 @@
+wrote /home/cc/results_outputheavy/b16/phase_energy_agg.csv from 3 reps

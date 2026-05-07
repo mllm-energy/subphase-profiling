@@ -1,0 +1,5 @@
+aggregating /home/cc/results_inputheavy (workload=inputheavy)
+  wrote /home/cc/results_inputheavy/kernel_traces.csv (16266 rows)
+  wrote /home/cc/results_inputheavy/phase_durations.csv (25 rows)
+  wrote /home/cc/results_inputheavy/end_to_end.csv (5 rows)
+done
